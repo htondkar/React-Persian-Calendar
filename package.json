@@ -1,6 +1,6 @@
 {
   "name": "react-persian-calendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A persian calendar in react",
   "author": "Hamid Tnd",
   "license": "MIT",
@@ -20,7 +20,8 @@
   "peerDependencies": {
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "moment-jalaali": "0.7.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
