@@ -7,14 +7,14 @@ import './calender.css'
 moment.loadPersian()
 
 const DayNames = () => (
-  <div className="week names">
-    <span className="day">ش</span>
-    <span className="day">ی</span>
-    <span className="day">د</span>
-    <span className="day">س</span>
-    <span className="day">چ</span>
-    <span className="day">پ</span>
-    <span className="day">ج</span>
+  <div className='week names'>
+    <span className='day'>ش</span>
+    <span className='day'>ی</span>
+    <span className='day'>د</span>
+    <span className='day'>س</span>
+    <span className='day'>چ</span>
+    <span className='day'>پ</span>
+    <span className='day'>ج</span>
   </div>
 )
 
@@ -37,11 +37,7 @@ const Week = ({ date, month, select, selected }) => {
       (day.date.isSame(selected) ? ' selected' : '')
 
     days.push(
-      <span
-        key={day.date.toString()}
-        className={className}
-        onClick={() => select(day)}
-      >
+      <span key={day.date.toString()} className={className} onClick={() => select(day)}>
         {toPersianDigit(day.number)}
       </span>
     )
@@ -51,23 +47,25 @@ const Week = ({ date, month, select, selected }) => {
   }
 
   return (
-    <div className="week" key={days[0].toString()}>
+    <div className='week' key={days[0].toString()}>
       {days}
     </div>
   )
 }
 
 const RenderWeeks = ({ month, select, selected }) => {
-  let weeks = [],
-    done = false,
-    // start the week with SHANBE, so instead of day()
-    // we user weekday for locale aware day index
-    date = month
-      .clone()
-      .startOf('jMonth')
-      .weekday(0),
-    monthIndex = date.jMonth(),
-    count = 0
+  let weeks = []
+  let done = false
+  // start the week with SHANBE, so instead of day()
+  // we user weekday for locale aware day index
+  let date = month
+    .clone()
+    .startOf('jMonth')
+    .weekday(0)
+
+  let monthIndex = date.jMonth()
+
+  let count = 0
 
   while (!done) {
     weeks.push(
@@ -84,7 +82,7 @@ const RenderWeeks = ({ month, select, selected }) => {
     monthIndex = date.jMonth()
   }
 
-  return <div className="weeks-container">{weeks}</div>
+  return <div className='weeks-container'>{weeks}</div>
 }
 
 export default class Calender extends Component {
@@ -100,20 +98,30 @@ export default class Calender extends Component {
     let month = this.state.month
     month.subtract(1, 'month')
     this.setState({ month: month })
+    this.selectFirstDayOfMonth(month)
   }
 
   next = () => {
     let month = this.state.month
     month.add(1, 'month')
     this.setState({ month: month })
+    this.selectFirstDayOfMonth(month)
+  }
+
+  selectFirstDayOfMonth = month => {
+    this.setState({
+      selectedDay: month.clone().startOf('jMonth')
+    })
   }
 
   today = () => {
     const { onChange } = this.props
+
     this.setState({
       month: moment().startOf('jMonth'), // "selected" is a moment object
       selectedDay: moment().startOf('jDay')
     })
+
     onChange && onChange(moment().format('jYYYY-jMM-jDD'))
   }
 
@@ -125,18 +133,16 @@ export default class Calender extends Component {
 
   render() {
     return (
-      <div id="calender-wrapper">
-        <div id="calendar">
-          <div className="header">
-            <div className="icon-and-text-in-a-row" onClick={this.previous}>
+      <div id='calender-wrapper'>
+        <div id='calendar'>
+          <div className='header'>
+            <div className='icon-and-text-in-a-row' onClick={this.previous}>
               <span>&#10094;</span>
               {/* <Icon icon={ic_arrow_forward} />
               <span>ماه قبل</span> */}
             </div>
-            <span>
-              {toPersianDigit(this.state.month.format('jYYYY jMMMM'))}
-            </span>
-            <div className="icon-and-text-in-a-row" onClick={this.next}>
+            <span>{toPersianDigit(this.state.month.format('jYYYY jMMMM'))}</span>
+            <div className='icon-and-text-in-a-row' onClick={this.next}>
               <span> &#10095;</span>
               {/* <span>ماه بعد</span>
               <Icon icon={ic_arrow_back} /> */}
