@@ -1,8 +1,8 @@
 {
   "name": "react-persian-calendar",
   "version": "1.0.0",
-  "description": "",
-  "author": "htondkar",
+  "description": "A persian calendar in react",
+  "author": "Hamid Tnd",
   "license": "MIT",
   "repository": "htondkar/react-persian-calendar",
   "main": "dist/index.js",
@@ -52,5 +52,10 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "react",
+    "persian",
+    "calendar"
   ]
 }

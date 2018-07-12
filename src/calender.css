@@ -1,0 +1,121 @@
+#calender-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid silver;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translate(50%, -50px);
+  padding: 10px !important;
+  display: flex;
+  width: 320px;
+  flex-direction: column; }
+  #calender-wrapper button {
+    margin-top: auto;
+    width: 100%;
+    font-family: 'irSans';
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 3px silver solid;
+    background: silver;
+    color: white;
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    will-change: background, box-shadow; }
+    #calender-wrapper button:hover {
+      background: slategray;
+      border-color: slategray;
+      color: white; }
+
+#calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px; }
+  #calendar > div.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+    color: grey;
+    direction: rtl;
+    font-family: 'irSans'; }
+    #calendar > div.header > * {
+      vertical-align: middle; }
+    #calendar > div.header > div.icon-and-text-in-a-row {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      width: 35px; }
+      #calendar > div.header > div.icon-and-text-in-a-row:hover {
+        color: silver; }
+    #calendar > div.header > span {
+      font-weight: bold;
+      font-size: 1.2em;
+      direction: ltr;
+      box-sizing: border-box;
+      text-align: center;
+      color: grey; }
+  #calendar div.weeks-container {
+    width: 100%;
+    transition: height 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center; }
+    #calendar div.weeks-container > div.week {
+      margin: 2.5px 0;
+      justify-content: space-between; }
+      #calendar div.weeks-container > div.week span.day {
+        width: 50px;
+        height: 30px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center; }
+        #calendar div.weeks-container > div.week span.day:not(.selected):hover {
+          background-color: yellowsilver; }
+        #calendar div.weeks-container > div.week span.day:last-child {
+          background-color: silver; }
+  #calendar div.week {
+    direction: rtl;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'irSans'; }
+    #calendar div.week span.day {
+      box-sizing: border-box;
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      color: black; }
+      #calendar div.week span.day.today {
+        border: 2px silver solid; }
+      #calendar div.week span.day.different-month {
+        color: grey; }
+      #calendar div.week span.day.selected {
+        background: silver;
+        color: white; }
+    #calendar div.week.names {
+      margin: 10px 0 20px 0;
+      padding: 10px 0;
+      border-radius: 5px;
+      background-color: silver; }
+      #calendar div.week.names span {
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        width: 50px;
+        cursor: initial; }
