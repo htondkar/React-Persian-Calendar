@@ -1,0 +1,8 @@
+{
+  "short_name": "react-persian-calendar",
+  "name": "react-persian-calendar",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
