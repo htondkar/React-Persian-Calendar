@@ -96,14 +96,14 @@ export default class Calender extends Component {
 
   previous = () => {
     let month = this.state.month
-    month.subtract(1, 'month')
+    month.subtract(1, 'jMonth')
     this.setState({ month: month })
     this.selectFirstDayOfMonth(month)
   }
 
   next = () => {
     let month = this.state.month
-    month.add(1, 'month')
+    month.add(1, 'jMonth')
     this.setState({ month: month })
     this.selectFirstDayOfMonth(month)
   }
